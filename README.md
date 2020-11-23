@@ -1,12 +1,14 @@
 # Notes from Hortense - Using Git in a Team!
-# Clone & Make a branch
+* Clone & Make a branch Steps 1 - 4
+* Merge your feature Steps 5 - 11
+
 ## 1. Clone
 ```
 cd workspace
 git clone + https link
 cd myRepo
 ```
-## 2. Make a branch using the name of the feature your are working on
+## 2. Make a branch using the name of your feature
 ```
 git checkout -b myFeature  
 code .  
@@ -17,7 +19,6 @@ npm i
 npm run knex migrate:latest
 npm run knex seed:run
 ```
-
 ## 4. Commit & Push your branch
 ```
 git status 
@@ -25,38 +26,56 @@ git add .
 git commit -m “commit message”  
 git push origin myBranch  
 ```
+
+
 # MERGE TIME!! 
-### Feature is done, ready to merge? 
+* Feature is done, ready to merge? 
 
-## 1. Commit your branch as above
-
+## 5. Commit your branch
 ```
 git add .  
 git commit -m “readyToMerge”   
 ```
 
-## 2. Pull master into your branch, open VScode & deal with the conflicts there.
+## 6. Pull master into your branch, open VScode & deal with the conflicts there.
 
 ```
 git pull origin master
 code .
 ```
-## 3. Any conflicts or changes need to be saved, added, & committed again
+## 7. Vscode
+
+* Files marked C need 
+
+A red triangle indicates where lines have been deleted
+A green bar indicates new added lines
+A blue bar indicates modified lines
+* 
+* 
+
+## 8. Any conflicts or changes need to be saved, added, & committed again
+
+
 ```
 git add .
 git commit -m “mergeTime”
 git push origin myBranch
 ```
-## 4. Github - create pull request
+## 9. Github - create pull request
 
 * Create pull request from mybranch to master (on github)
 * Tell the git keeper, they will merge the pull request and there should be 0 conflicts as you have allready resolved these in your branch.
 
-## 5. GitKeeper - merge the reauest
+Create a new branch with a new name
+```
+git checkout -b myFeature  
+code .  
+```
+## 10. GitKeeper - merge the request
 
-* Merge the pull request only if there are 0 conflicts
+* Merge the pull request on Github only if there are 0 conflicts, then delete the branch.
 
-## 6. Everyone else now needs to pull from master & update their modules
+## 11. Everyone else now needs to pull from master & update their modules
 ```
 npm i
 ```
