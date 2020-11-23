@@ -1,66 +1,53 @@
-# Notes from Hortense
+# Notes from Hortense - Using Git in a Team!
+## Clone & Make a branch
 
-Using Git in a Team!
-Clone & Make a branch
-
-(change directory) to where you want to keep your repo
 ```
 cd workspace
 git clone + https link
 cd myRepo
-npm i
 ```
-
-This means node package manager - install
-Run migrations to reset the database
-```
-npm run knex migrate:latest
-npm run knex seed:run
-```
-Make a branch
-
-Use the name of the feature your are working on
+## Make a branch using the name of the feature your are working on
 ```
 git checkout -b myFeature  
 code .  
 ```
-to open in VScode
+## Instal moduels & reset the database
+```
+npm i
+npm run knex migrate:latest
+npm run knex seed:run
+```
 
-Commit  & Push your branch
+## Commit  & Push your branch
 ```
 git status 
 git add .  
 git commit -m “commit message”  
 git push origin myBranch  
 ```
-Feature is done, ready to merge? 
-Merge the Master into your branch, commit & push
-In local,
-Pull master into MyBranch. Deal with conflicts there. 
+# Feature is done, ready to merge? 
+
+* Pull master into your branch & deal with the conflicts there.
+
 ```
 git add .
 git commit -m “readyToMerge”
 git pull origin master
-```
-Open VStudio
-```
 code .
 ```
-Deal with your conflicts here, then save
-
 Any conflicts or changes need to be saved, added, & committed again
 ```
 git add .
 git commit -m “mergeTime”
+git push origin myBranch
 ```
-Github
+## Github - create pull request
 
-Then create pull request from mybranch remote to master remote (on github)
+* Create pull request from mybranch to master (on github)
+* Tell the git keeper, they will merge the pull request and there should be 0 conflicts as you have allready resolved these in your branch.
 
+## Everyone else now needs to pull from master.
 
-Tell the git keeper, they will merge the pull request and there should be 0 conflicts as you have allready resolved these in your branch.
-
-Everyone else now needs to pull from master, 
 ```
 npm i
 
@@ -69,7 +56,7 @@ npm run knex migrate:latest
 npm run knex seed:run
 
 ```
-If you want a fast way to add, commit and push to your branch use this command (enter your own commit message)
+
 # Dev academy Readme
 
 ## Getting Started
