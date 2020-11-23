@@ -1,61 +1,73 @@
 # Notes from Hortense - Using Git in a Team!
-## Clone & Make a branch
-
+# Clone & Make a branch
+## 1. Clone
 ```
 cd workspace
 git clone + https link
 cd myRepo
 ```
-## Make a branch using the name of the feature your are working on
+## 2. Make a branch using the name of the feature your are working on
 ```
 git checkout -b myFeature  
 code .  
 ```
-## Instal moduels & reset the database
+## 3. Instal modules & reset the database
 ```
 npm i
 npm run knex migrate:latest
 npm run knex seed:run
 ```
 
-## Commit  & Push your branch
+## 4. Commit & Push your branch
 ```
 git status 
 git add .  
 git commit -m “commit message”  
 git push origin myBranch  
 ```
-# Feature is done, ready to merge? 
+# MERGE TIME!! 
+### Feature is done, ready to merge? 
 
-* Pull master into your branch & deal with the conflicts there.
+## 1. Commit your branch as above
 
 ```
-git add .
-git commit -m “readyToMerge”
+git add .  
+git commit -m “readyToMerge”   
+```
+
+## 2. Pull master into your branch, open VScode & deal with the conflicts there.
+
+```
 git pull origin master
 code .
 ```
-Any conflicts or changes need to be saved, added, & committed again
+## 3. Any conflicts or changes need to be saved, added, & committed again
 ```
 git add .
 git commit -m “mergeTime”
 git push origin myBranch
 ```
-## Github - create pull request
+## 4. Github - create pull request
 
 * Create pull request from mybranch to master (on github)
 * Tell the git keeper, they will merge the pull request and there should be 0 conflicts as you have allready resolved these in your branch.
 
-## Everyone else now needs to pull from master.
+## 5. GitKeeper - merge the reauest
 
+* Merge the pull request only if there are 0 conflicts
+
+## 6. Everyone else now needs to pull from master & update their modules
 ```
 npm i
-
+```
+* Reset database
+```
 rm server/db/dev.sqlite3
 npm run knex migrate:latest
 npm run knex seed:run
 
 ```
+
 
 # Dev academy Readme
 
